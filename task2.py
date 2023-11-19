@@ -5,14 +5,8 @@ def task(filepath) -> float:
     # Чтение данных из JSON файла
     with open(filepath) as f:
         data = json.load(f)
-    # Вычисление суммы произведений двух значений в каждом словаре
-    sum = 0
-    for dictionary in data:
-        score = dictionary.get("score", 0)
-        weight = dictionary.get("weight", 0)
-        product = score * weight
-        sum += product
-    return round(sum,3)
+    # Вычисление суммы произведений двух значений в каждом словаре с использованием генератора
+    sum = round(sum(dictionary.get("score", 0) * dictionary.get("weight", 0) for dictionary in data), 3)
 
 
 print(task("input.json"))
