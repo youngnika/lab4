@@ -6,7 +6,8 @@ def task(filepath) -> float:
     with open(filepath) as f:
         data = json.load(f)
     # Вычисление суммы произведений двух значений в каждом словаре с использованием генератора
-    sum = round(sum(dictionary.get("score", 0) * dictionary.get("weight", 0) for dictionary in data), 3)
+    summa = round(sum(dictionary.get("score", 0) * dictionary.get("weight", 0) for dictionary in data), 3)
+    return summa
 
 
 print(task("input.json"))
