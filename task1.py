@@ -13,12 +13,7 @@ def task(csv_file, json_file) -> None:
         # Создаем объект DictReader для чтения значений из CSV
         reader = csv.DictReader(file)
 
-        data = []
-
-        # Обрабатываем каждую запись в CSV файле
-        for row in reader:
-            # Добавляем словарь с данными текущей записи в список
-            data.append(row)
+        data = [row for row in reader] #внесла изменение
     # TODO Сериализовать в файл с отступами равными 4
     with open(json_file, 'w') as file:
         # Записываем данные в JSON файл
